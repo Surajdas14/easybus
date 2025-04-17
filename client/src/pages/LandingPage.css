@@ -1,0 +1,228 @@
+/* LandingPage.css */
+
+.hero-bus-icon {
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.2);
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+}
+
+.hero-bus-svg {
+  font-size: 42px;
+  color: white;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.hero-bus-icon:after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.3);
+    opacity: 0;
+  }
+}
+
+.bus-animation-container {
+  position: absolute;
+  top: -60px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 100;
+}
+
+.bus-animation-wrapper {
+  position: relative;
+  width: 140px;
+  height: 80px;
+  background: rgba(26, 115, 232, 0.9);
+  border-radius: 15px;
+  overflow: visible;
+  margin-bottom: 5px;
+}
+
+.bus-body {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  animation: drive 3s infinite;
+}
+
+.bus-window {
+  position: absolute;
+  width: 20px;
+  height: 15px;
+  background: #fff;
+  border-radius: 3px;
+}
+
+.bus-window-1 {
+  top: 15px;
+  left: 15px;
+}
+
+.bus-window-2 {
+  top: 15px;
+  left: 45px;
+}
+
+.bus-window-3 {
+  top: 15px;
+  left: 75px;
+}
+
+.bus-window-4 {
+  top: 15px;
+  right: 15px;
+}
+
+.bus-wheel {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: #333;
+  border-radius: 50%;
+  bottom: -10px;
+  animation: rotate 2s infinite linear;
+}
+
+.bus-wheel-1 {
+  left: 20px;
+}
+
+.bus-wheel-2 {
+  right: 20px;
+}
+
+.bus-wheel-hub {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 10px;
+  height: 10px;
+  background: #666;
+  border-radius: 50%;
+}
+
+.bus-light {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  bottom: 20px;
+}
+
+.bus-light-front {
+  background: #ff9;
+  right: -5px;
+  animation: blink 1s infinite;
+}
+
+.bus-light-back {
+  background: #f55;
+  left: -5px;
+  animation: blink 1s infinite;
+}
+
+.bus-text {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+  text-align: center;
+  width: 100%;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  letter-spacing: 0.5px;
+  font-family: Arial, sans-serif;
+  z-index: 20;
+}
+
+.bus-label {
+  background-color: #ffffff;
+  color: #1a73e8;
+  padding: 3px 10px;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 16px;
+  margin-top: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  font-family: Arial, sans-serif;
+  text-align: center;
+  z-index: 101;
+  letter-spacing: 0.5px;
+}
+
+@keyframes drive {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-5px) rotate(-2deg);
+  }
+  50% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  75% {
+    transform: translateY(-5px) rotate(2deg);
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}

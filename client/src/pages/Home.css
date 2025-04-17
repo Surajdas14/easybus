@@ -1,0 +1,135 @@
+/* Home.css */
+.bus-icon-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.bus-icon {
+  font-size: 3rem;
+  color: #1a73e8; /* primary color */
+  animation: drive 3s infinite alternate;
+  transform-origin: center;
+}
+
+@keyframes drive {
+  0% {
+    transform: translateX(-20px);
+  }
+  50% {
+    transform: translateX(20px);
+  }
+  100% {
+    transform: translateX(-20px);
+  }
+}
+
+.bus-icon:hover {
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.bus-animation-container {
+  position: relative;
+  height: 100px;
+  overflow: hidden;
+  background-color: #f3f8ff;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.animated-bus {
+  position: absolute;
+  width: 120px;
+  height: 60px;
+  animation: drive-across 6s infinite linear;
+}
+
+.road {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 10px;
+  background-color: #444;
+}
+
+@keyframes drive-across {
+  0% {
+    left: -120px;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+/* Bus parts */
+.bus-body {
+  position: absolute;
+  width: 100px;
+  height: 30px;
+  background-color: #1a73e8;
+  border-radius: 5px;
+  bottom: 15px;
+}
+
+.bus-top {
+  position: absolute;
+  width: 90px;
+  height: 18px;
+  background-color: #1a73e8;
+  border-radius: 5px 5px 0 0;
+  bottom: 45px;
+  left: 5px;
+}
+
+.wheel {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background-color: #333;
+  border-radius: 50%;
+  bottom: 8px;
+}
+
+.wheel-front {
+  left: 75px;
+}
+
+.wheel-back {
+  left: 15px;
+}
+
+.window {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background-color: #81c0ff;
+  bottom: 32px;
+}
+
+.window-1 {
+  left: 15px;
+}
+
+.window-2 {
+  left: 35px;
+}
+
+.window-3 {
+  left: 55px;
+}
+
+.window-4 {
+  left: 75px;
+}

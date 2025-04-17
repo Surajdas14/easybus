@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EasyBus Test Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+    .container {
+      border: 1px solid #ddd;
+      padding: 20px;
+      border-radius: 5px;
+      background-color: #f8f9fa;
+      margin-top: 20px;
+    }
+    h1 {
+      color: #0066cc;
+    }
+    .success {
+      color: green;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>EasyBus Test Page</h1>
+  <p>This is a static test page to verify that the browser preview is working correctly.</p>
+  
+  <div class="container">
+    <h2>Browser Preview Status</h2>
+    <p class="success">✓ If you can see this page, the browser preview is working!</p>
+    <p>We're experiencing an issue with the React application rendering. This static HTML page helps us confirm that the basic browser preview functionality works.</p>
+  </div>
+
+  <div class="container">
+    <h2>Troubleshooting Steps</h2>
+    <ol>
+      <li>Confirm the React development server is running (npm start)</li>
+      <li>Check browser console for JavaScript errors</li>
+      <li>Verify that port 3001 is being used by the React app</li>
+      <li>Ensure there are no routing or rendering errors in the React application</li>
+    </ol>
+    <p>Once we confirm the browser preview is working with this static page, we can troubleshoot the React application.</p>
+  </div>
+</body>
+</html>

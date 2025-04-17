@@ -1,0 +1,17 @@
+{
+  "Changes": [
+    {
+      "Action": "UPSERT",
+      "ResourceRecordSet": {
+        "Name": "easybus.review.in.net",
+        "Type": "CNAME",
+        "TTL": 300,
+        "ResourceRecords": [
+          {
+            "Value": "s3-website-us-east-1.amazonaws.com"
+          }
+        ]
+      }
+    }
+  ]
+}
