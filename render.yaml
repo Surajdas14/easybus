@@ -13,7 +13,3 @@ services:
         sync: false # This will prompt you to add this as a secret in Render dashboard
       - key: JWT_SECRET
         sync: false # This will prompt you to add this as a secret in Render dashboard
-    routes:
-      - type: rewrite
-        source: /*
-        destination: /
