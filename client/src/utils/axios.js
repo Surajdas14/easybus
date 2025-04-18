@@ -2,18 +2,21 @@ import axios from 'axios';
 
 // Determine the base URL based on environment
 const getBaseUrl = () => {
+  // Check if we have an environment variable for the API URL
+  const envApiUrl = process.env.REACT_APP_API_BASEURL;
+  
   // In production (on Render), use the relative path which will be handled by our Express server
   if (process.env.NODE_ENV === 'production') {
-    return '/api';
+    return envApiUrl || '/api';
   }
   
-  // Check if we're using the proxy in development (standard React dev setup)
+  // In development, check for localhost
   if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
-    // When running in development with React's proxy
+    // If running locally, we'll rely on the proxy setting in package.json
     return '/api';
   }
   
-  // Fallback - should not typically be needed
+  // Fallback
   return '/api';
 };
 

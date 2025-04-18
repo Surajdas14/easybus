@@ -28,10 +28,10 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "REACT_APP_API_BASEURL=/api react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "build:prod": "env-cmd -f .env.production react-scripts build"
+    "build:prod": "env-cmd -f .env.production REACT_APP_API_BASEURL=/api react-scripts build"
   },
   "eslintConfig": {
     "extends": [
