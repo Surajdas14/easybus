@@ -28,6 +28,8 @@ const corsOptions = process.env.NODE_ENV === 'development' ? {
     const allowedOrigins = [
       'https://easybus.com',
       'https://www.easybus.com',
+      'https://easybus.onrender.com',
+      'https://*.onrender.com',  // Allow all Render subdomains
       'http://localhost:3000',
       'http://localhost:3001',
       'http://127.0.0.1:3000',
@@ -35,7 +37,8 @@ const corsOptions = process.env.NODE_ENV === 'development' ? {
       'http://127.0.0.1:50309'  // Add browser preview port
     ];
     
-    if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
+    // Check if origin is allowed or if it's a Render.com domain
+    if (allowedOrigins.indexOf(origin) !== -1 || origin.includes('onrender.com') || !origin) {
       callback(null, true);
     } else {
       callback(new Error('Not allowed by CORS'));
@@ -81,6 +84,29 @@ app.use('/api/bookings', bookingRoutes);
 app.use('/api/agents', agentRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/admin', adminRoutes);
+
+// Serve static files from React app in production
+if (process.env.NODE_ENV === 'production') {
+  // Set static folder
+  const clientBuildPath = path.join(__dirname, '../client/build');
+  
+  // Check if the build directory exists
+  if (require('fs').existsSync(clientBuildPath)) {
+    console.log('Serving static files from:', clientBuildPath);
+    app.use(express.static(clientBuildPath));
+  
+    // For any route that is not an API route, serve the index.html
+    app.get('*', (req, res, next) => {
+      if (!req.path.startsWith('/api')) {
+        res.sendFile(path.resolve(clientBuildPath, 'index.html'));
+      } else {
+        next();
+      }
+    });
+  } else {
+    console.warn('Client build directory not found at:', clientBuildPath);
+  }
+}
 
 // Error handling middleware
 app.use((err, req, res, next) => {

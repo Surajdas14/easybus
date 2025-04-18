@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // Create axios instance with better error handling
 const instance = axios.create({
-  baseURL: '/api',  // Changed from absolute URL to relative URL to work with proxy
+  baseURL: process.env.NODE_ENV === 'production' ? '/api' : '/api',  // Always use relative URL to work with both local and production
   headers: {
     'Content-Type': 'application/json'
   },

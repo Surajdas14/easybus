@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: easybus
+    env: node
+    buildCommand: npm install && cd client && npm install && npm run build && cd ../server && npm install
+    startCommand: cd server && NODE_ENV=production npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: MONGODB_URI
+        sync: false # This will prompt you to add this as a secret in Render dashboard
+      - key: JWT_SECRET
+        sync: false # This will prompt you to add this as a secret in Render dashboard
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /
