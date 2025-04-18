@@ -13,3 +13,19 @@ services:
         sync: false # This will prompt you to add this as a secret in Render dashboard
       - key: JWT_SECRET
         sync: false # This will prompt you to add this as a secret in Render dashboard
+      - key: REFRESH_TOKEN_SECRET
+        sync: false # Add this for token refresh functionality
+      - key: ADMIN_EMAIL
+        sync: false # Admin configuration
+      - key: ADMIN_PASSWORD
+        sync: false
+      - key: EMAIL_HOST
+        sync: false # Email configuration 
+      - key: EMAIL_PORT
+        sync: false
+      - key: EMAIL_USER
+        sync: false
+      - key: EMAIL_PASS
+        sync: false
+      - key: EMAIL_FROM
+        sync: false
