@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
 import { toast } from 'react-toastify';
+import api from '../../utils/axiosConfig'; // Import our configured API client
 
 const AdminDashboard = () => {
   const navigate = useNavigate();
@@ -19,7 +19,12 @@ const AdminDashboard = () => {
 
   const getFullImageUrl = (path) => {
     if (!path) return null;
-    return path.startsWith('http') ? path : `http://localhost:5001${path}`;
+    // Use a relative path in production, only use absolute path in development
+    if (process.env.NODE_ENV === 'production') {
+      return path.startsWith('http') ? path : path;
+    } else {
+      return path.startsWith('http') ? path : `http://localhost:5001${path}`;
+    }
   };
 
   useEffect(() => {
@@ -48,7 +53,7 @@ const AdminDashboard = () => {
     console.log('Admin authentication verified, proceeding to load dashboard');
     
     // Set authorization header for axios
-    axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+    api.defaults.headers.common['Authorization'] = `Bearer ${token}`;
     
     fetchDashboardStats();
     // Refresh stats every 30 seconds
@@ -68,22 +73,14 @@ const AdminDashboard = () => {
         throw new Error('No authentication token found');
       }
       
-      // Using direct axios call just like in the Buses.js page
-      console.log('Making direct axios call to dashboard stats endpoint');
-      const response = await axios.get('http://localhost:5001/api/admin/dashboard/stats', {
-        headers: {
-          'Authorization': `Bearer ${token}`
-        }
-      });
+      // Use our API instance instead of direct axios calls with hardcoded URLs
+      console.log('Making API call to dashboard stats endpoint');
+      const response = await api.get('/admin/dashboard/stats');
       
       console.log('Dashboard stats response:', response.data);
       
       // Separately fetch all buses to ensure we're getting the correct count
-      const busesResponse = await axios.get('http://localhost:5001/api/admin/buses', {
-        headers: {
-          'Authorization': `Bearer ${token}`
-        }
-      });
+      const busesResponse = await api.get('/admin/buses');
       
       console.log('Buses data:', busesResponse.data);
       const totalBuses = busesResponse.data.length;
