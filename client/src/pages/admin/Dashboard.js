@@ -147,12 +147,12 @@ const AdminDashboard = () => {
   };
 
   return (
-    <div className="p-6 space-y-6">
-      <h1 className="text-2xl font-bold text-gray-900">Admin Dashboard</h1>
+    <div className="p-3 md:p-6 space-y-4 md:space-y-6 max-w-full overflow-hidden">
+      <h1 className="text-xl md:text-2xl font-bold text-gray-900">Admin Dashboard</h1>
 
       {loading ? (
         <div className="flex justify-center items-center h-48">
-          <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
+          <div className="animate-spin rounded-full h-10 w-10 md:h-12 md:w-12 border-t-2 border-b-2 border-blue-500"></div>
         </div>
       ) : error ? (
         <div className="bg-red-50 p-4 rounded-lg text-red-800">
@@ -162,62 +162,62 @@ const AdminDashboard = () => {
       ) : (
         <>
           {/* Stats Overview */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="bg-white rounded-lg shadow p-6">
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6">
+            <div className="bg-white rounded-lg shadow p-3 md:p-6">
               <div className="flex items-center">
-                <div className="rounded-full p-3 bg-blue-100">
-                  <svg className="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <div className="rounded-full p-2 md:p-3 bg-blue-100">
+                  <svg className="w-6 h-6 md:w-8 md:h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
                   </svg>
                 </div>
-                <div className="ml-4">
-                  <p className="text-sm font-medium text-gray-500">Total Users</p>
-                  <p className="text-2xl font-semibold text-gray-900">{stats.totalUsers}</p>
+                <div className="ml-3 md:ml-4">
+                  <p className="text-xs md:text-sm font-medium text-gray-500">Total Users</p>
+                  <p className="text-lg md:text-2xl font-semibold text-gray-900">{stats.totalUsers}</p>
                 </div>
               </div>
             </div>
 
-            <div className="bg-white rounded-lg shadow p-6">
+            <div className="bg-white rounded-lg shadow p-3 md:p-6">
               <div className="flex items-center">
-                <div className="rounded-full p-3 bg-green-100">
-                  <svg className="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <div className="rounded-full p-2 md:p-3 bg-green-100">
+                  <svg className="w-6 h-6 md:w-8 md:h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
                   </svg>
                 </div>
-                <div className="ml-4">
-                  <p className="text-sm font-medium text-gray-500">Total Bookings</p>
-                  <p className="text-2xl font-semibold text-gray-900">{stats.totalBookings}</p>
+                <div className="ml-3 md:ml-4">
+                  <p className="text-xs md:text-sm font-medium text-gray-500">Total Bookings</p>
+                  <p className="text-lg md:text-2xl font-semibold text-gray-900">{stats.totalBookings}</p>
                 </div>
               </div>
             </div>
 
-            <div className="bg-white rounded-lg shadow p-6">
+            <div className="bg-white rounded-lg shadow p-3 md:p-6">
               <div className="flex items-center">
-                <div className="rounded-full p-3 bg-purple-100">
-                  <svg className="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <div className="rounded-full p-2 md:p-3 bg-purple-100">
+                  <svg className="w-6 h-6 md:w-8 md:h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
                   </svg>
                 </div>
-                <div className="ml-4">
-                  <p className="text-sm font-medium text-gray-500">Buses</p>
+                <div className="ml-3 md:ml-4">
+                  <p className="text-xs md:text-sm font-medium text-gray-500">Buses</p>
                   <div className="flex flex-col">
-                    <p className="text-lg font-semibold text-gray-900">Total: {stats.totalBuses}</p>
-                    <p className="text-sm text-green-600">Active: {stats.activeBuses}</p>
+                    <p className="text-sm md:text-lg font-semibold text-gray-900">Total: {stats.totalBuses}</p>
+                    <p className="text-xs md:text-sm text-green-600">Active: {stats.activeBuses}</p>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="bg-white rounded-lg shadow p-6">
+            <div className="bg-white rounded-lg shadow p-3 md:p-6">
               <div className="flex items-center">
-                <div className="rounded-full p-3 bg-yellow-100">
-                  <svg className="w-8 h-8 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <div className="rounded-full p-2 md:p-3 bg-yellow-100">
+                  <svg className="w-6 h-6 md:w-8 md:h-8 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                   </svg>
                 </div>
-                <div className="ml-4">
-                  <p className="text-sm font-medium text-gray-500">Total Revenue</p>
-                  <p className="text-2xl font-semibold text-gray-900">
+                <div className="ml-3 md:ml-4">
+                  <p className="text-xs md:text-sm font-medium text-gray-500">Total Revenue</p>
+                  <p className="text-lg md:text-2xl font-semibold text-gray-900 break-all">
                     ₹{stats.totalRevenue.toLocaleString('en-IN')}
                   </p>
                 </div>
@@ -227,27 +227,27 @@ const AdminDashboard = () => {
 
           {/* Recent Bookings */}
           <div className="bg-white rounded-lg shadow overflow-hidden">
-            <div className="px-6 py-4 border-b">
-              <h2 className="text-lg font-semibold text-gray-900">Recent Bookings</h2>
+            <div className="px-3 py-3 md:px-6 md:py-4 border-b">
+              <h2 className="text-base md:text-lg font-semibold text-gray-900">Recent Bookings</h2>
             </div>
             <div className="divide-y divide-gray-200">
               {stats.recentBookings.length > 0 ? (
                 stats.recentBookings.map((booking) => (
-                  <div key={booking._id} className="p-6">
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <p className="text-sm font-medium text-gray-900">
+                  <div key={booking._id} className="p-3 md:p-6">
+                    <div className="flex flex-col md:flex-row md:items-center md:justify-between space-y-2 md:space-y-0">
+                      <div className="overflow-hidden">
+                        <p className="text-sm font-medium text-gray-900 truncate">
                           {booking.user?.name || 'Unknown User'}
                         </p>
-                        <p className="text-sm text-gray-500">
+                        <p className="text-xs md:text-sm text-gray-500 truncate">
                           {booking.bus?.busNumber} - {booking.bus?.source} to {booking.bus?.destination}
                         </p>
                       </div>
-                      <div className="text-right">
+                      <div className="text-left md:text-right">
                         <p className="text-sm font-medium text-gray-900">
                           ₹{((booking.totalAmount || booking.fareInRupees || 0).toLocaleString('en-IN'))}
                         </p>
-                        <p className="text-sm text-gray-500">
+                        <p className="text-xs md:text-sm text-gray-500">
                           {new Date(booking.createdAt).toLocaleDateString('en-IN')}
                         </p>
                       </div>
@@ -255,49 +255,49 @@ const AdminDashboard = () => {
                   </div>
                 ))
               ) : (
-                <div className="p-6 text-center text-gray-500">No recent bookings</div>
+                <div className="p-3 md:p-6 text-center text-gray-500">No recent bookings</div>
               )}
             </div>
           </div>
 
           {/* Top Agents */}
           <div className="bg-white rounded-lg shadow overflow-hidden">
-            <div className="px-6 py-4 border-b">
-              <h2 className="text-lg font-semibold text-gray-900">Top Agents</h2>
+            <div className="px-3 py-3 md:px-6 md:py-4 border-b">
+              <h2 className="text-base md:text-lg font-semibold text-gray-900">Top Agents</h2>
             </div>
             <div className="divide-y divide-gray-200">
               {stats.agents.length > 0 ? (
                 stats.agents.map((agent) => (
-                  <div key={agent._id} className="p-6">
-                    <div className="flex items-center justify-between">
+                  <div key={agent._id} className="p-3 md:p-6">
+                    <div className="flex flex-col md:flex-row md:items-center md:justify-between space-y-3 md:space-y-0">
                       <div className="flex items-center">
                         {agent.logo && (
                           <img
                             src={getFullImageUrl(agent.logo)}
                             alt={agent.agencyName}
-                            className="h-10 w-10 rounded-full object-cover"
+                            className="h-8 w-8 md:h-10 md:w-10 rounded-full object-cover"
                             onError={(e) => {
                               e.target.onerror = null;
                               e.target.src = 'https://via.placeholder.com/40?text=A';
                             }}
                           />
                         )}
-                        <div className="ml-4">
-                          <p className="text-sm font-medium text-gray-900">{agent.agencyName}</p>
-                          <p className="text-sm text-gray-500">{agent.email}</p>
+                        <div className="ml-3 md:ml-4 overflow-hidden">
+                          <p className="text-sm font-medium text-gray-900 truncate">{agent.agencyName}</p>
+                          <p className="text-xs md:text-sm text-gray-500 truncate">{agent.email}</p>
                         </div>
                       </div>
-                      <div className="text-right">
+                      <div className="text-left md:text-right">
                         <p className="text-sm font-medium text-gray-900">
                           {agent.totalBookings} bookings
                         </p>
-                        <p className="text-sm text-gray-500">{agent.commission}% commission</p>
+                        <p className="text-xs md:text-sm text-gray-500">{agent.commission}% commission</p>
                       </div>
                     </div>
                   </div>
                 ))
               ) : (
-                <div className="p-6 text-center text-gray-500">No agents found</div>
+                <div className="p-3 md:p-6 text-center text-gray-500">No agents found</div>
               )}
             </div>
           </div>
