@@ -10,7 +10,14 @@ const getBaseUrl = () => {
     return overrideUrl;
   }
   
+  // Check if we're in production or development
+  if (process.env.NODE_ENV === 'production') {
+    console.log('Using production API path: /api');
+    return '/api';  // Use relative path in production
+  }
+  
   // For local development, use localhost
+  console.log('Using development API URL: http://localhost:5001/api');
   return 'http://localhost:5001/api';
 };
 
