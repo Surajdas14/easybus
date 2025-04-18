@@ -93,20 +93,33 @@ if (process.env.NODE_ENV === 'production') {
   // Check if the build directory exists
   if (require('fs').existsSync(clientBuildPath)) {
     console.log('Serving static files from:', clientBuildPath);
+    
+    // Serve static files
     app.use(express.static(clientBuildPath));
-  
-    // For any route that is not an API route, serve the index.html
+    
+    // For any non-API routes, serve the React app's index.html
     app.get('*', (req, res, next) => {
-      if (!req.path.startsWith('/api')) {
-        res.sendFile(path.resolve(clientBuildPath, 'index.html'));
-      } else {
-        next();
+      // Skip API routes
+      if (req.path.startsWith('/api')) {
+        return next();
       }
+      
+      console.log('Serving React app for path:', req.path);
+      res.sendFile(path.resolve(clientBuildPath, 'index.html'));
     });
   } else {
     console.warn('Client build directory not found at:', clientBuildPath);
   }
 }
+
+// Handle 404 for API routes only
+app.use('/api/*', (req, res) => {
+  console.log('API 404 for:', req.originalUrl);
+  res.status(404).json({
+    success: false,
+    message: 'API route not found'
+  });
+});
 
 // Error handling middleware
 app.use((err, req, res, next) => {

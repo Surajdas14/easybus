@@ -1,8 +1,25 @@
 import axios from 'axios';
 
+// Determine the base URL based on environment
+const getBaseUrl = () => {
+  // In production (on Render), use the relative path which will be handled by our Express server
+  if (process.env.NODE_ENV === 'production') {
+    return '/api';
+  }
+  
+  // Check if we're using the proxy in development (standard React dev setup)
+  if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+    // When running in development with React's proxy
+    return '/api';
+  }
+  
+  // Fallback - should not typically be needed
+  return '/api';
+};
+
 // Create axios instance with better error handling
 const instance = axios.create({
-  baseURL: process.env.NODE_ENV === 'production' ? '/api' : '/api',  // Always use relative URL to work with both local and production
+  baseURL: getBaseUrl(),
   headers: {
     'Content-Type': 'application/json'
   },
@@ -12,7 +29,7 @@ const instance = axios.create({
 // Add a request interceptor
 instance.interceptors.request.use(
   (config) => {
-    console.log('Making API request to:', config.url);
+    console.log('Making API request to:', config.baseURL + config.url);
     const token = localStorage.getItem('token');
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
@@ -28,7 +45,7 @@ instance.interceptors.request.use(
 // Add a response interceptor
 instance.interceptors.response.use(
   (response) => {
-    console.log('API response received:', response.config.url);
+    console.log('API response received:', response.config.baseURL + response.config.url);
     return response;
   },
   async (error) => {
