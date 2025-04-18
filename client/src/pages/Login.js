@@ -19,7 +19,13 @@ const Login = () => {
     if (isAuthenticated()) {
       const user = getCurrentUser();
       
-      // Redirect based on user role
+      // Check if there's a redirect path in location state
+      if (location.state?.from) {
+        navigate(location.state.from);
+        return;
+      }
+      
+      // Otherwise redirect based on user role
       if (user) {
         console.log('User already logged in, redirecting based on role:', user.role);
         switch(user.role) {
@@ -34,7 +40,14 @@ const Login = () => {
         }
       }
     }
-  }, [navigate]); // Only run on navigation changes
+  }, [navigate, location]); // Added location to dependencies
+
+  // Display message from location state if it exists
+  useEffect(() => {
+    if (location.state?.message) {
+      toast.info(location.state.message);
+    }
+  }, [location.state]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -74,13 +87,18 @@ const Login = () => {
       // Trigger auth change event
       window.dispatchEvent(new Event('authChange'));
 
-      // Redirect based on user role
-      if (user.role === 'admin') {
-        navigate('/admin/dashboard');
-      } else if (user.role === 'agent') {
-        navigate('/agent/dashboard');
+      // Check if there was a previous page the user was trying to access
+      if (location.state?.from) {
+        navigate(location.state.from);
       } else {
-        navigate('/dashboard');
+        // Otherwise redirect based on user role
+        if (user.role === 'admin') {
+          navigate('/admin/dashboard');
+        } else if (user.role === 'agent') {
+          navigate('/agent/dashboard');
+        } else {
+          navigate('/dashboard');
+        }
       }
     } catch (error) {
       // Comprehensive error logging

@@ -1,9 +1,22 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import { isAuthenticated } from '../utils/authUtils';
 import './Home.css';
 
 const Home = () => {
   const navigate = useNavigate();
+
+  const handleBookNow = () => {
+    if (isAuthenticated()) {
+      // User is logged in, proceed to bus selection
+      navigate('/select-bus');
+    } else {
+      // User is not logged in, redirect to login page
+      toast.info('Please log in to book a bus ticket');
+      navigate('/login', { state: { from: '/select-bus', message: 'Please log in to continue booking' } });
+    }
+  };
 
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col justify-center items-center">
@@ -28,7 +41,7 @@ const Home = () => {
         
         <div className="space-y-4">
           <button 
-            onClick={() => navigate('/select-bus')}
+            onClick={handleBookNow}
             className="w-full btn btn-primary py-3 rounded-lg"
           >
             Book a Bus
