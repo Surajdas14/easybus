@@ -229,7 +229,7 @@ const Dashboard = () => {
                 {/* QR Code for ticket verification */}
                 <div className="flex justify-center mt-3 mb-1">
                   <img 
-                    src={`https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=EASYBUS-${booking._id}`}
+                    src={`https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=GUNGUN-${booking._id}`}
                     alt="Ticket QR Code" 
                     className="w-20 h-20 border border-gray-200 rounded"
                   />

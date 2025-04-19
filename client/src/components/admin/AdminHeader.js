@@ -73,7 +73,7 @@ const AdminHeader = () => {
         <div className="flex items-center justify-between h-16 navbar-content">
           <Link to="/admin/dashboard" className="text-xl font-bold flex items-center">
             <i className="fas fa-bus-alt mr-2"></i>
-            <span className="truncate">EasyBus Admin</span>
+            <span className="truncate">GUNGUN Admin</span>
           </Link>
 
           {/* Mobile menu button */}

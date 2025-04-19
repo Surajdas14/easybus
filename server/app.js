@@ -26,9 +26,9 @@ const corsOptions = process.env.NODE_ENV === 'development' ? {
     if (!origin) return callback(null, true);
     
     const allowedOrigins = [
-      'https://easybus.com',
-      'https://www.easybus.com',
-      'https://easybus.onrender.com',
+      'https://gungun.com',
+      'https://www.gungun.com',
+      'https://gungun.onrender.com',
       'https://*.onrender.com',  // Allow all Render subdomains
       'http://localhost:3000',
       'http://localhost:3001',

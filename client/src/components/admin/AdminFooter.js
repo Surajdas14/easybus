@@ -10,7 +10,7 @@ const AdminFooter = () => {
           <div className="flex items-center space-x-2">
             <i className="fas fa-bus text-blue-400"></i>
             <div>
-              <span className="font-medium">EasyBus</span>
+              <span className="font-medium">GUNGUN</span>
               <span className="mx-2">|</span>
               <span className="text-sm">Admin Portal</span>
             </div>
@@ -25,7 +25,7 @@ const AdminFooter = () => {
               <i className="fas fa-calendar text-blue-400"></i>
               <span>{new Date().toLocaleDateString()}</span>
             </div>
-            <span> {currentYear} EasyBus. All rights reserved.</span>
+            <span> {currentYear} GUNGUN. All rights reserved.</span>
           </div>
         </div>
       </div>

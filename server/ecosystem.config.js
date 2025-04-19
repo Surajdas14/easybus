@@ -1,6 +1,6 @@
 module.exports = {
   apps: [{
-    name: "easybus-api",
+    name: "gungun-api",
     script: "./server.js",
     instances: "max",
     exec_mode: "cluster",

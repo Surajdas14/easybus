@@ -35,7 +35,7 @@ const Home = () => {
             </div>
             <div className="road"></div>
           </div>
-          <h1 className="text-4xl font-bold text-primary">EasyBus</h1>
+          <h1 className="text-4xl font-bold text-primary">GUNGUN</h1>
           <p className="mt-2 text-sm text-gray-600">Your convenient bus booking platform</p>
         </div>
         
@@ -63,7 +63,7 @@ const Home = () => {
         </div>
 
         <div className="text-center text-sm text-gray-500 mt-4">
-          <p>&copy; 2025 EasyBus. All rights reserved.</p>
+          <p>&copy; 2025 GUNGUN. All rights reserved.</p>
         </div>
       </div>
     </div>

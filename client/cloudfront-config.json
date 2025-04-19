@@ -1,5 +1,5 @@
 {
-  "CallerReference": "easybus-deployment-2025",
+  "CallerReference": "gungun-deployment-2025",
   "Aliases": {
     "Quantity": 1,
     "Items": ["review.in.net"]
@@ -9,8 +9,8 @@
     "Quantity": 1,
     "Items": [
       {
-        "Id": "S3-easybus-client",
-        "DomainName": "easybus-client.s3.amazonaws.com",
+        "Id": "S3-gungun-client",
+        "DomainName": "gungun-client.s3.amazonaws.com",
         "S3OriginConfig": {
           "OriginAccessIdentity": ""
         }
@@ -18,7 +18,7 @@
     ]
   },
   "DefaultCacheBehavior": {
-    "TargetOriginId": "S3-easybus-client",
+    "TargetOriginId": "S3-gungun-client",
     "ViewerProtocolPolicy": "redirect-to-https",
     "AllowedMethods": {
       "Quantity": 2,

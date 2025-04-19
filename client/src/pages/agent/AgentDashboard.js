@@ -480,7 +480,7 @@ const AgentDashboard = () => {
                   </div>
                   <h4 className="font-medium text-gray-900 mb-1">Email Support</h4>
                   <p className="text-gray-600 mb-2">We typically respond within 24 hours</p>
-                  <p className="font-medium">agent.support@easybus.com</p>
+                  <p className="font-medium">agent.support@gungun.com</p>
                 </div>
                 <div className="flex-1 border rounded-lg p-4">
                   <div className="text-2xl text-primary mb-3">

@@ -12,7 +12,7 @@ const Footer = () => {
           <div className="space-y-4">
             <div className="flex items-center space-x-3">
               <i className="fas fa-bus text-3xl text-primary"></i>
-              <span className="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">EasyBus</span>
+              <span className="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">GUNGUN</span>
             </div>
             <p className="text-gray-400">
               Making bus travel easy, comfortable, and accessible for everyone.
@@ -113,7 +113,7 @@ const Footer = () => {
                 <div className="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center group-hover:bg-primary transition-colors duration-300">
                   <i className="fas fa-envelope text-sm"></i>
                 </div>
-                <span>support@easybus.com</span>
+                <span>support@gungun.com</span>
               </li>
               <li className="flex items-center space-x-3 text-gray-400 group">
                 <div className="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center group-hover:bg-primary transition-colors duration-300">
@@ -129,7 +129,7 @@ const Footer = () => {
         <div className="border-t border-gray-800 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-400 text-sm">
-              {currentYear} EasyBus. All rights reserved.
+              {currentYear} GUNGUN. All rights reserved.
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <i className="fab fa-cc-visa text-3xl text-gray-400 hover:text-primary transition-all duration-300 transform hover:scale-110"></i>

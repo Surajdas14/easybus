@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 // Determine the right backend URL based on environment
 const getBaseUrl = () => {
   // Check for a specific override in localStorage (for testing/development)
-  const overrideUrl = localStorage.getItem('easybus_api_url');
+  const overrideUrl = localStorage.getItem('gungun_api_url');
   if (overrideUrl) {
     console.log('Using API URL override:', overrideUrl);
     return overrideUrl;

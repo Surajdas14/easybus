@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Bus = require('../models/Bus');
 
-const MONGODB_URI = 'mongodb+srv://Surajdas14:Namrup.8486915664@cluster0.jqsjk.mongodb.net/easybus?retryWrites=true&w=majority';
+const MONGODB_URI = 'mongodb+srv://Surajdas14:Namrup.8486915664@cluster0.jqsjk.mongodb.net/gungun?retryWrites=true&w=majority';
 
 const sampleBuses = [
   {

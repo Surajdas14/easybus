@@ -45,7 +45,7 @@ const Navbar = () => {
             <Link to="/" className="flex items-center space-x-3 group">
               <i className="fas fa-bus text-3xl text-primary group-hover:scale-110 transition-transform duration-300"></i>
               <span className="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                EasyBus
+                GUNGUN
               </span>
             </Link>
           </div>

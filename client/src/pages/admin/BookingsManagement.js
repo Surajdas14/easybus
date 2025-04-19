@@ -151,7 +151,7 @@ const BookingsManagement = () => {
                           <span>{booking._id}</span>
                         </div>
                         <div className="text-xs mt-1 bg-blue-50 p-1 rounded">
-                          <span className="font-bold">Ref:</span> EASYBUS-{booking._id.substring(0, 8).toUpperCase()}
+                          <span className="font-bold">Ref:</span> GUNGUN-{booking._id.substring(0, 8).toUpperCase()}
                         </div>
                       </div>
                       <div className="text-sm text-gray-500 mt-1">{new Date(booking.createdAt).toLocaleString()}</div>

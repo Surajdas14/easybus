@@ -6,7 +6,7 @@ import { toast } from 'react-toastify';
 const AdminLogin = () => {
   // Prefill with the admin credentials from the .env file
   const [formData, setFormData] = useState({
-    email: 'admin@easybus.com',
+    email: 'admin@gungun.com',
     password: 'Admin@123'
   });
   const [showPassword, setShowPassword] = useState(false);

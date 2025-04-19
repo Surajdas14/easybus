@@ -20,7 +20,7 @@ const app = express();
 
 // Middleware
 app.use(cors({
-  origin: ['http://localhost:3000', 'http://127.0.0.1:50309', 'http://easybus.review.in.net', 'https://0d4e-2409-40e6-21b-c87c-b92b-925-e4c8-57d5.ngrok.io'],
+  origin: ['http://localhost:3000', 'http://127.0.0.1:50309', 'http://gungun.review.in.net', 'https://0d4e-2409-40e6-21b-c87c-b92b-925-e4c8-57d5.ngrok.io'],
   credentials: true
 }));
 app.use(express.json());

@@ -23,7 +23,7 @@ const AdminSidebar = () => {
   return (
     <div className="w-64 bg-gray-800 text-white flex flex-col">
       <div className="p-4 border-b border-gray-700">
-        <h1 className="text-2xl font-bold">EasyBus Admin</h1>
+        <h1 className="text-2xl font-bold">GUNGUN Admin</h1>
       </div>
 
       <nav className="flex-1 overflow-y-auto py-4">

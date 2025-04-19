@@ -76,20 +76,20 @@ const sendOTPEmail = async (email, otp) => {
     
     const mailOptions = {
       from: {
-        name: 'EasyBus',
+        name: 'GUNGUN',
         address: process.env.EMAIL_FROM
       },
       to: email,
-      subject: 'Email Verification - EasyBus',
+      subject: 'Email Verification - GUNGUN',
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
           <div style="background-color: #1a73e8; padding: 20px; text-align: center;">
-            <h1 style="color: white; margin: 0;">EasyBus</h1>
+            <h1 style="color: white; margin: 0;">GUNGUN</h1>
           </div>
           <div style="padding: 20px; border: 1px solid #e0e0e0; border-radius: 5px; margin-top: 20px;">
             <h2 style="color: #333;">Email Verification</h2>
             <p style="color: #666; line-height: 1.6;">
-              Thank you for registering with EasyBus. To complete your registration, please use the following verification code:
+              Thank you for registering with GUNGUN. To complete your registration, please use the following verification code:
             </p>
             <div style="background-color: #f5f5f5; padding: 15px; border-radius: 5px; margin: 20px 0; text-align: center;">
               <h2 style="color: #1a73e8; letter-spacing: 5px; margin: 0;">${otp}</h2>
@@ -99,13 +99,13 @@ const sendOTPEmail = async (email, otp) => {
             </p>
             <div style="margin-top: 20px; padding: 15px; background-color: #fff8e1; border-radius: 5px;">
               <p style="color: #b71c1c; margin: 0;">
-                <strong>Security Notice:</strong> Never share this code with anyone. EasyBus will never ask for this code through any other means.
+                <strong>Security Notice:</strong> Never share this code with anyone. GUNGUN will never ask for this code through any other means.
               </p>
             </div>
           </div>
           <div style="text-align: center; margin-top: 20px; color: #666; font-size: 12px;">
             <p>This is an automated message, please do not reply.</p>
-            <p>&copy; ${new Date().getFullYear()} EasyBus. All rights reserved.</p>
+            <p>&copy; ${new Date().getFullYear()} GUNGUN. All rights reserved.</p>
           </div>
         </div>
       `

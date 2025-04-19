@@ -61,7 +61,7 @@ const PrintTicket = () => {
       const imgY = 30;
 
       pdf.addImage(imgData, 'PNG', imgX, imgY, imgWidth * ratio, imgHeight * ratio);
-      pdf.save(`EasyBus_Ticket_${ticketData.bookingId}.pdf`);
+      pdf.save(`GUNGUN_Ticket_${ticketData.bookingId}.pdf`);
       
       toast.success('Ticket downloaded successfully!');
     });
@@ -72,7 +72,7 @@ const PrintTicket = () => {
   };
 
   const generateTicketNumber = () => {
-    return `EB${ticketData.bookingId.substring(0, 6).toUpperCase()}`;
+    return `GN${ticketData.bookingId.substring(0, 6).toUpperCase()}`;
   };
 
   if (loading || !ticketData) {
@@ -125,7 +125,7 @@ const PrintTicket = () => {
                   </div>
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold">EasyBus</h3>
+                  <h3 className="text-xl font-bold">GUNGUN</h3>
                   <p className="text-sm opacity-80">Your journey, our responsibility</p>
                 </div>
               </div>
@@ -234,7 +234,7 @@ const PrintTicket = () => {
                 <div className="text-center">
                   <div className="mb-1">
                     <QRCodeSVG
-                      value={`EASYBUS-TICKET-${ticketData.bookingId}`}
+                      value={`GUNGUN-TICKET-${ticketData.bookingId}`}
                       size={120}
                       level="H"
                       includeMargin={true}
@@ -250,7 +250,7 @@ const PrintTicket = () => {
               {/* Watermark Diagonal */}
               <div className="absolute inset-0 flex items-center justify-center opacity-5 pointer-events-none overflow-hidden">
                 <div className="transform rotate-45">
-                  <h1 className="text-9xl font-extrabold text-gray-500 whitespace-nowrap">EASYBUS</h1>
+                  <h1 className="text-9xl font-extrabold text-gray-500 whitespace-nowrap">GUNGUN</h1>
                 </div>
               </div>
             </div>
@@ -290,7 +290,7 @@ const PrintTicket = () => {
         </div>
 
         <div className="text-center text-sm text-gray-500">
-          <p>Thank you for choosing EasyBus for your journey!</p>
+          <p>Thank you for choosing GUNGUN for your journey!</p>
         </div>
       </div>
     </div>

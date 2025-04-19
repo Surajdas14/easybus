@@ -1,7 +1,7 @@
 {
-  "name": "easybus-server",
+  "name": "gungun-server",
   "version": "1.0.0",
-  "description": "Backend server for EasyBus ticket booking system",
+  "description": "Backend server for GUNGUN ticket booking system",
   "main": "app.js",
   "engines": {
     "node": ">=16.0.0"

@@ -1,6 +1,6 @@
-# EasyBus - Bus Ticket Booking System
+# GUNGUN - Bus Ticket Booking System
 
-EasyBus is a comprehensive bus ticket booking platform that connects travelers with bus operators, providing a seamless booking experience.
+GUNGUN is a comprehensive bus ticket booking platform that connects travelers with bus operators, providing a seamless booking experience.
 
 ## Features
 
@@ -49,8 +49,8 @@ EasyBus is a comprehensive bus ticket booking platform that connects travelers w
 
 1. **Clone the repository**
 ```bash
-git clone https://github.com/yourusername/easybus.git
-cd easybus
+git clone https://github.com/yourusername/gungun.git
+cd gungun
 ```
 
 2. **Install dependencies**
@@ -117,5 +117,5 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## Acknowledgements
 
-- All contributors who have helped with the development of EasyBus
+- All contributors who have helped with the development of GUNGUN
 - The amazing open-source community for the tools and libraries used in this project

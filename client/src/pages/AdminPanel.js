@@ -27,7 +27,7 @@ const AdminPanel = () => {
         <div className="p-4">
           <Link to="/admin" className="flex items-center space-x-3">
             <i className="fas fa-bus text-3xl text-blue-400"></i>
-            <span className="text-xl font-bold">EasyBus Admin</span>
+            <span className="text-xl font-bold">GUNGUN Admin</span>
           </Link>
         </div>
         <nav className="mt-8">

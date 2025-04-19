@@ -3,7 +3,7 @@
     {
       "Action": "UPSERT",
       "ResourceRecordSet": {
-        "Name": "easybus.review.in.net",
+        "Name": "gungun.review.in.net",
         "Type": "CNAME",
         "TTL": 300,
         "ResourceRecords": [
