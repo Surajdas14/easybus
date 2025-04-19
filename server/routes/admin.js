@@ -109,7 +109,8 @@ router.get('/dashboard/stats', async (req, res) => {
     
     const totalBookings = await Booking.countDocuments();
     const totalRevenue = await Booking.aggregate([
-      { $group: { _id: null, total: { $sum: '$totalAmount' } } }
+      { $match: { status: 'confirmed' } },
+      { $group: { _id: null, total: { $sum: '$fareInRupees' } } }
     ]);
 
     console.log('Total bookings:', totalBookings, 'Total revenue:', totalRevenue[0]?.total || 0);
@@ -178,7 +179,7 @@ router.get('/dashboard/stats', async (req, res) => {
         _id: booking._id,
         user: booking.user,
         bus: booking.bus,
-        totalAmount: booking.totalAmount,
+        totalAmount: booking.fareInRupees,
         status: booking.status,
         seats: booking.seats,
         createdAt: booking.createdAt
