@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { getCurrentUser, logout } from '../utils/authUtils';
+import HamburgerIcon from './HamburgerIcon';
+import './HamburgerIcon.css';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -52,12 +54,7 @@ const Navbar = () => {
 
           {/* Mobile menu button */}
           <div className="flex items-center md:hidden">
-            <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-gray-700 hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 p-2 rounded-md"
-            >
-              <i className={`fas ${isMenuOpen ? 'fa-times' : 'fa-bars'} text-xl`}></i>
-            </button>
+            <HamburgerIcon isOpen={isMenuOpen} toggleMenu={() => setIsMenuOpen(!isMenuOpen)} />
           </div>
 
           {/* Desktop Navigation */}

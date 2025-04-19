@@ -1,0 +1,45 @@
+/* Hamburger Icon Animation */
+.hamburger-icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 60;
+  transition: filter 0.2s;
+}
+.hamburger-icon:focus {
+  outline: none;
+  filter: brightness(0.9);
+}
+.hamburger-icon .bar {
+  display: block;
+  width: 28px;
+  height: 4px;
+  margin: 4px auto;
+  border-radius: 2px;
+  background: #1e40af; /* Tailwind blue-800 */
+  transition: all 0.35s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.hamburger-icon .bar.top {
+  transform: translateY(0);
+}
+.hamburger-icon .bar.middle {
+  opacity: 1;
+}
+.hamburger-icon .bar.bottom {
+  transform: translateY(0);
+}
+.hamburger-icon.open .bar.top {
+  transform: translateY(8px) rotate(45deg);
+}
+.hamburger-icon.open .bar.middle {
+  opacity: 0;
+}
+.hamburger-icon.open .bar.bottom {
+  transform: translateY(-8px) rotate(-45deg);
+}

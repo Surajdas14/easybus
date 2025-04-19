@@ -1,6 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FaBus } from 'react-icons/fa';
+import { toast } from 'react-toastify';
+import { isAuthenticated } from '../utils/authUtils';
 import './LandingPage.css';
 
 const BusIcon = () => (
@@ -10,6 +12,18 @@ const BusIcon = () => (
 );
 
 const LandingPage = () => {
+  const navigate = useNavigate();
+
+  // Handles Book Now button click
+  const handleBookNow = () => {
+    if (isAuthenticated()) {
+      navigate('/book');
+    } else {
+      toast.info('Please log in to book a bus ticket');
+      navigate('/login', { state: { from: '/book', message: 'Please log in to continue booking' } });
+    }
+  };
+
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -30,12 +44,12 @@ const LandingPage = () => {
             </p>
             <div className="mt-10 max-w-sm mx-auto sm:max-w-none sm:flex sm:justify-center">
               <div className="space-y-4 sm:space-y-0 sm:mx-auto sm:inline-grid sm:grid-cols-1 sm:gap-5">
-                <Link
-                  to="/book"
+                <button
+                  onClick={handleBookNow}
                   className="flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-blue-700 bg-white hover:bg-gray-50 md:py-4 md:text-lg md:px-10 transform transition-transform duration-200 hover:scale-105"
                 >
                   Book Now
-                </Link>
+                </button>
               </div>
             </div>
           </div>

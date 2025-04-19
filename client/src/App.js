@@ -26,6 +26,8 @@ import PassengerDetails from './pages/PassengerDetails';
 import DummyPayment from './pages/DummyPayment';
 import PrintTicket from './pages/PrintTicket';
 import ProtectedAdminRoute from './components/ProtectedAdminRoute';
+import QuickLinks from './pages/QuickLinks';
+import Services from './pages/Services';
 
 // Import Agent Pages
 import AgentDashboard from './pages/agent/AgentDashboard';
@@ -87,6 +89,8 @@ function App() {
                   <Route path="/passenger-details" element={<PassengerDetails />} />
                   <Route path="/payment" element={<DummyPayment />} />
                   <Route path="/print-ticket" element={<PrintTicket />} />
+                  <Route path="/quick-links" element={<QuickLinks />} />
+                  <Route path="/services" element={<Services />} />
                 </Routes>
               </main>
               <Footer />
