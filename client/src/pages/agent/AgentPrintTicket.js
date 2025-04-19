@@ -5,6 +5,7 @@ import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
 import { QRCodeSVG } from 'qrcode.react';
 import axios from '../../utils/axios';
+import '../PrintTicket.css';
 
 const AgentPrintTicket = () => {
   const location = useLocation();
@@ -72,7 +73,7 @@ const AgentPrintTicket = () => {
     if (!ticketRef.current) return;
 
     html2canvas(ticketRef.current, {
-      scale: 2,
+      scale: 3, // Higher scale for better clarity
       useCORS: true,
       logging: false
     }).then(canvas => {
@@ -89,7 +90,7 @@ const AgentPrintTicket = () => {
       const imgHeight = canvas.height;
       const ratio = Math.min(pdfWidth / imgWidth, pdfHeight / imgHeight);
       const imgX = (pdfWidth - imgWidth * ratio) / 2;
-      const imgY = 30;
+      const imgY = 0; // Start at top of PDF
 
       pdf.addImage(imgData, 'PNG', imgX, imgY, imgWidth * ratio, imgHeight * ratio);
       pdf.save(`GUNGUN_Agent_Ticket_${ticketData.bookingId}.pdf`);
@@ -126,7 +127,7 @@ const AgentPrintTicket = () => {
             <div className="flex space-x-4">
               <button
                 onClick={printTicket}
-                className="px-4 py-2 bg-gray-800 text-white rounded-md flex items-center"
+                className="px-4 py-2 bg-gray-800 text-white rounded-md flex items-center no-print"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
@@ -135,7 +136,7 @@ const AgentPrintTicket = () => {
               </button>
               <button
                 onClick={downloadTicketAsPDF}
-                className="px-4 py-2 bg-primary text-white rounded-md flex items-center"
+                className="px-4 py-2 bg-primary text-white rounded-md flex items-center no-print"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
@@ -145,7 +146,7 @@ const AgentPrintTicket = () => {
             </div>
           </div>
 
-          <div id="ticket" ref={ticketRef} className="border border-gray-200 rounded-lg overflow-hidden relative print:shadow-none">
+          <div id="ticket" ref={ticketRef} className="relative bg-white rounded-lg shadow p-6 mx-auto" style={{ width: 794, minHeight: 500 }}>
             {/* Ticket Header */}
             <div className="px-6 py-4 border-b border-gray-200 flex justify-between items-center bg-blue-50">
               <div className="flex items-center">
@@ -160,23 +161,17 @@ const AgentPrintTicket = () => {
 
               {/* Agent Information - New Section */}
               {agentData && (
-                <div className="flex items-center bg-gray-50 p-3 rounded-lg border border-gray-200">
-                  <div className="mr-3">
-                    <img 
-                      src={agentData.logo} 
-                      alt="Agent Logo" 
-                      className="h-16 w-16 object-contain rounded"
-                      onError={(e) => {
-                        e.target.onerror = null;
-                        e.target.src = "https://via.placeholder.com/150?text=Travel+Agency";
-                      }}
-                    />
-                  </div>
+                <div className="flex items-center mb-4">
+                  <img
+                    src={agentData.logo}
+                    alt="Agency Logo"
+                    className="h-12 w-auto object-contain mr-3"
+                    crossOrigin="anonymous"
+                    onError={e => { e.target.onerror = null; e.target.src = 'https://via.placeholder.com/150?text=Travel+Agency'; }}
+                  />
                   <div>
-                    <h4 className="font-bold text-gray-900">{agentData.agencyName}</h4>
-                    <p className="text-xs text-gray-600">Authorized GUNGUN Agent</p>
-                    <p className="text-xs text-gray-600">Window: {agentData.windowNumber}</p>
-                    <p className="text-xs text-gray-600">Contact: {agentData.phone}</p>
+                    <div className="font-bold text-lg text-gray-900">{agentData.agencyName}</div>
+                    <div className="text-xs text-gray-600">Agent ID: {agentData.agentId}</div>
                   </div>
                 </div>
               )}

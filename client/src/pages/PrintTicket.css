@@ -1,0 +1,20 @@
+@media print {
+  body * {
+    visibility: hidden !important;
+  }
+  #ticket, #ticket * {
+    visibility: visible !important;
+  }
+  #ticket {
+    position: absolute !important;
+    left: 0;
+    top: 0;
+    width: 100vw !important;
+    background: white !important;
+    z-index: 9999;
+    box-shadow: none !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+}

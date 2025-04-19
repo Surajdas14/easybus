@@ -4,6 +4,7 @@ import { toast } from 'react-toastify';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
 import { QRCodeSVG } from 'qrcode.react';
+import './PrintTicket.css';
 // Font Awesome is already imported in index.html
 
 const PrintTicket = () => {
@@ -41,7 +42,7 @@ const PrintTicket = () => {
     if (!ticketRef.current) return;
 
     html2canvas(ticketRef.current, {
-      scale: 2,
+      scale: 3, // Higher scale for better clarity
       useCORS: true,
       logging: false
     }).then(canvas => {
@@ -58,7 +59,7 @@ const PrintTicket = () => {
       const imgHeight = canvas.height;
       const ratio = Math.min(pdfWidth / imgWidth, pdfHeight / imgHeight);
       const imgX = (pdfWidth - imgWidth * ratio) / 2;
-      const imgY = 30;
+      const imgY = 0; // Start at top of PDF
 
       pdf.addImage(imgData, 'PNG', imgX, imgY, imgWidth * ratio, imgHeight * ratio);
       pdf.save(`GUNGUN_Ticket_${ticketData.bookingId}.pdf`);
@@ -95,7 +96,7 @@ const PrintTicket = () => {
             <div className="flex space-x-4">
               <button
                 onClick={printTicket}
-                className="px-4 py-2 bg-gray-800 text-white rounded-md flex items-center"
+                className="px-4 py-2 bg-gray-800 text-white rounded-md flex items-center no-print"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
@@ -104,7 +105,7 @@ const PrintTicket = () => {
               </button>
               <button
                 onClick={downloadTicketAsPDF}
-                className="px-4 py-2 bg-primary text-white rounded-md flex items-center"
+                className="px-4 py-2 bg-primary text-white rounded-md flex items-center no-print"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
@@ -115,7 +116,7 @@ const PrintTicket = () => {
           </div>
 
           {/* The actual ticket that will be printed/saved */}
-          <div className="relative border border-gray-200 rounded-lg overflow-hidden" ref={ticketRef}>
+          <div id="ticket" ref={ticketRef} className="relative bg-white rounded-lg shadow p-6 mx-auto" style={{ width: 794, minHeight: 500 }}>
             {/* Ticket Header */}
             <div className="bg-primary text-white p-4 flex justify-between items-center">
               <div className="flex items-center">
